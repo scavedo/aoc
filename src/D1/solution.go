@@ -28,7 +28,7 @@ func init() {
 }
 
 func main() {
-  // part1()
+  part1()
   part2()
 }
 
@@ -52,7 +52,6 @@ func part2() {
     s = stripChars(s)
     first, last := firstLastDigits(s)
     num := first + last
-    fmt.Println(s, first, last, num)
     numInt, _ := strconv.Atoi(num)
     digits = append(digits, numInt)
   }
@@ -63,7 +62,6 @@ func part2() {
 func replaceNums(s string) string {
   for k, v := range wordToNum {
     re := regexp.MustCompile(k).FindAllStringIndex(s, -1)
-    fmt.Println(k, re)
     for _, idx := range re {
       s = s[:idx[0] + 1] + v + s[idx[0] + 2:]
     }
