@@ -8,9 +8,11 @@ import (
 
 //go:embed input.txt
 var input string
+var lines []string
 
 func init() {
   input = strings.TrimRight(input, "\n")
+  lines = strings.Split(input, "\n")
 }
 
 func main() {
