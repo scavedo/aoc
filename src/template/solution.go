@@ -22,9 +22,11 @@ func main() {
 
 
 func part1() {
-  fmt.Println("Part 1:", 0)
+  output := 0
+  fmt.Println("Part 1:", output)
 }
 
 func part2() {
-  fmt.Println("Part 2:", 0)
+  output := 0
+  fmt.Println("Part 2:", output)
 }
