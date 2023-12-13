@@ -35,11 +35,11 @@ func part1() {
   for _, pattern := range patterns {
     horizontal := findHorizontalReflection(pattern)
     if horizontal != -1 {
-      output += (horizontal) * 100
+      output += (horizontal + 1) * 100
     }
     vertical := findVerticalReflection(pattern)
     if vertical != -1 {
-      output += vertical
+      output += vertical + 1
     }
   }
   
@@ -52,8 +52,35 @@ func part2() {
 }
 
 func findHorizontalReflection(pattern [][]string) int {
+  for i := 0; i < len(pattern) - 1; i++ {
+    current := strings.Join(pattern[i], "")
+    next := strings.Join(pattern[i+1], "")
+    if current == next {
+      if checkAdjacent(pattern, i) {
+        return i
+      }
+    }
+  }
 
   return -1
+}
+
+func checkAdjacent(pattern [][]string, pos int) bool {
+  for offset := 0; offset <= pos; offset++ {
+    leftPos := pos - offset
+    rightPos := pos + offset + 1
+    if leftPos < 0 || rightPos >= len(pattern) {
+      return true
+    }
+    left := strings.Join(pattern[leftPos], "")
+    right := strings.Join(pattern[rightPos], "")
+    if left == right {
+      continue
+    } else {
+      return false
+    }
+  }
+  return true
 }
 
 func findVerticalReflection(pattern [][]string) int {
