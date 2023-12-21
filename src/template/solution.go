@@ -20,7 +20,6 @@ func main() {
   part2()
 }
 
-
 func part1() {
   output := 0
   fmt.Println("Part 1:", output)
