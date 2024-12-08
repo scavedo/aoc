@@ -1,16 +1,13 @@
-use std::fs;
 
-pub fn run(filepath: &str) {
-    let p1 = part_one(filepath);
-    let p2 = part_two(filepath);
+pub fn run(file: &str) {
+    let p1 = part_one(file);
+    let p2 = part_two(file);
 
     println!("Part 1: {}", p1);
     println!("Part 2: {}", p2);
 }
 
-fn part_one(filepath: &str) -> i32 {
-    let file = fs::read_to_string(filepath)
-        .expect("Should have read the file");
+fn part_one(file: &str) -> i32 {
     let (mut left, mut right): (Vec<i32>, Vec<i32>) = file
         .lines()
         .map(|line| {
@@ -32,9 +29,7 @@ fn part_one(filepath: &str) -> i32 {
         .sum::<i32>();
 }
 
-fn part_two(filepath: &str) -> i32 {
-    let file = fs::read_to_string(filepath)
-        .expect("Should have read the file");
+fn part_two(file: &str) -> i32 {
     let (left, right): (Vec<i32>, Vec<i32>) = file
         .lines()
         .map(|line| {
