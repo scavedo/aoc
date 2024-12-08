@@ -1,5 +1,6 @@
 mod d1;
 
+use crate::d1::runner as day1;
 use std::env;
 
 fn main() {
@@ -9,7 +10,7 @@ fn main() {
     let filepath = format!("src/{}/{}.txt", day, if test { "test" } else { "input" });
 
     match day.trim() {
-        "d1" => d1::runner::run(filepath.as_str()),
+        "d1" => day1::run(filepath.as_str()),
         _ => panic!("Unknown entry"),
     }
 }
